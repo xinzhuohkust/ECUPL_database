@@ -2,3 +2,95 @@
 title: "可视化"
 page-layout: full
 ---
+
+基于2000多份基层治理文献数据，我们制作了以下可视化图表，用于探究哪些省份得到了学术界更多的的关注。如果一个省在文献中被提到的次数越多，代表其越受到学术界的关注。
+
+点击`Code`即可看到实现图表的`R`代码，它们展现了如何一步一步制作符合国家标准的的精美地图。
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-fold: true
+# Xinzhuo HUANG's R code for the visualization
+# devtools::install_github("yutannihilation/ggsflabel")
+
+pacman::p_load(tidyverse, sf, showtext, ggthemes, scales, ggsflabel, cowplot)
+
+font_add("song", "fonts/NeoZhiSong.ttf")
+
+showtext_auto()
+
+attention <- rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/data_for_coding/基层治理中文文献数据.xlsx", setclass = "tibble") %>% 
+    pull(摘要) %>% 
+    str_extract("安徽|江苏|浙江|福建|江西|山东|河南|湖北|湖南|广东|海南|四川|贵州|云南|陕西|甘肃|青海|台湾|内蒙古|广西|西藏|宁夏|新疆|北京|天津|上海|重庆|河北|山西|辽宁|吉林|黑龙江") %>%
+    na.omit() %>%
+    table() %>%
+    as_tibble() %>% 
+    set_names(c("地区", "数量"))
+
+China <- st_read("https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json")
+
+map_plot <- China %>% 
+    as_tibble() %>% 
+    mutate(name = str_remove_all(name, "市|省|自治区|特别行政区|壮族|维吾尔|回族")) %>%
+    left_join(attention, by = c("name" = "地区")) %>%
+    replace_na(list(数量 = 0)) %>%
+    ggplot(data = ., aes(geometry = geometry)) +
+    geom_sf(aes(fill = 数量), color = "gray70") +
+    geom_sf_text_repel(aes(label = name), size = 4.5, family = "song", color = "#555665") +
+    scale_fill_gradientn(
+        colors = c("#eeeeee", "#f9d07b", "#f28e2b", "#d1495b", "#b2182b"),
+        values = scales::rescale(quantile(attention$数量, probs = seq(0, 1, 0.17), na.rm = TRUE))
+    ) +
+    theme_map() +
+    theme(
+        legend.position = c(0.82, 0.4),
+        legend.key.size = unit(0.25, units = "cm"),
+        legend.margin = margin(t = 0, r = 10, b = 0, l = 0),
+        legend.text = element_text(family = "song", size = 8),
+        legend.title = element_blank()
+    )
+
+col_plot <- ggplot(data = attention, aes(x = reorder(地区, -数量), y = 数量)) +
+    geom_col(alpha = 0.75, fill = "gray80") +
+    geom_text(
+        aes(label = 地区, y = 0.1),
+        angle = 90,
+        size = 5.5,
+        nudge_y = 1,
+        hjust = 0,
+        family = "song",
+        color = "#555665"
+    ) +
+    scale_y_continuous(labels = label_number(scale = 1, suffix = " 次"), position = "left") +
+    theme_minimal() +
+    theme(
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.text.y = element_text(family = "song", size = 12, color = "#555665"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+    ) +
+    xlab("") +
+    ylab("") 
+
+combind_plot <- cow_plot_col_cases <- ggdraw(
+    col_plot + theme(plot.margin = margin(l = 0, 0, 0, 0, "cm"))
+) +
+    draw_plot(
+        map_plot,
+        x = 0.05,
+        y = 0.15,
+        width = 1,
+        height = 0.85
+    )
+
+ggsave(
+    "F:\\OneDrive - HKUST Connect\\Phd\\网站范例\\华东政法数据库项目网站\\docs\\visualizations\\attention_map.png",
+    plot = combind_plot,
+    width = 6,
+    height = 4,
+    dpi = 300
+)
+```
+![](attention_map.png)
