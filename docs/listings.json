@@ -2,19 +2,19 @@
   {
     "listing": "/index.html",
     "items": [
-      "/databases/中国治国理政历史数据库与案例库/index.html",
-      "/databases/中外治理精英数据库/index.html",
+      "/databases/基层治理文献摘编数据库/index.html",
       "/databases/国家与基层治理系列数据库/index.html",
-      "/databases/基层治理文献摘编数据库/index.html"
+      "/databases/中外治理精英数据库/index.html",
+      "/databases/中国治国理政历史数据库与案例库/index.html"
     ]
   },
   {
     "listing": "/databases/index.html",
     "items": [
-      "/databases/中国治国理政历史数据库与案例库/index.html",
-      "/databases/中外治理精英数据库/index.html",
+      "/databases/基层治理文献摘编数据库/index.html",
       "/databases/国家与基层治理系列数据库/index.html",
-      "/databases/基层治理文献摘编数据库/index.html"
+      "/databases/中外治理精英数据库/index.html",
+      "/databases/中国治国理政历史数据库与案例库/index.html"
     ]
   }
 ]

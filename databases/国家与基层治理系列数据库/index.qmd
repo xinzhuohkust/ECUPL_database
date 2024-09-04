@@ -1,5 +1,69 @@
 ---
 title: "国家与基层治理系列数据库"
 image: 基层治理.jpg
+page-layout: full
+toc: false
+citation:
+  author: "政府管理学院 华东政法大学 "
+  type: collection
+  issued: 2024-09-04
+execute: 
+  freeze: auto
 ---
 
+该数据库一方面充分利用现代数据挖掘技术，采集和整理各级政府工作报告、党代会报告、人大代表议案等国家治理文本数据，另一方面运用传统的人工编码和赋值的方式收集整理国家治理相关的数据，形成具有较高学术价值的国家治理系列数据库，以支撑政治学和公共管理学科的教学与科研工作。目前，该数据库包含以下数据集：
+
+::: {.panel-tabset align="left"}
+## 中国国务院政府工作报告（1954-2024）
+
+中国国务院政府工作报告（1954-2024）数据集收集和整理了自1954年至2024年以来中国国务院历年政府工作报告的文本，该数据集包含年份、报告人、报告文本三个变量。
+
+点击下方`CSV`或`Excel`按钮，可下载完整数据集。点击表格上方的变量可进行快速筛选。
+
+<br>
+
+```{r}
+#| echo: false
+#| cache: false
+#| warning: false
+
+pacman::p_load(tidyverse)
+
+rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/data_for_coding/GovernmentReport(1954-2024).xlsx", setclass = "tibble") %>% 
+    mutate(
+        text = str_trim(text) |> str_squish(),
+        #short_text = str_extract(text, "^.{0,30}"),
+        #text = map2_chr(text, short_text, ~ sprintf(.x, .y, fmt = '<span title="%s">%s...</span>')),
+        #short_text = NULL,
+        speaker = as.factor(speaker)
+    ) %>% 
+    setNames(c("年份", "报告人", "报告文本")) %>%
+    DT::datatable(
+        filter = 'top',
+        colnames = c('编号' = 1),
+        extensions = c("Buttons"),
+        options = list(
+            dom = "Bfrtip",
+            autoWidth = FALSE,
+            buttons = c("csv", "excel"),
+            columnDefs = list(
+                list(className = 'dt-center', targets = "_all"),
+                list(visible = FALSE, targets = 3),
+                list(visible = TRUE, targets = 4)
+            )
+        ),
+        escape = FALSE
+    )
+```
+
+## 其他数据集
+- 中国省级政府工作报告（2003-2019）
+- 中国地级市政府工作报告（2009-2019）
+- 地方政府政民互动数据（上海、天津、无锡）
+- 国务院政策文件数据集（1996-2023）
+- 新媒体宣传与基层治理数据集
+- 中国省级领导新闻报道数据集
+- 中国政府采购合同数据集
+- 中国政府和社会资本合作（PPP）数据集
+- 中国基层微腐败案例数据集
+:::

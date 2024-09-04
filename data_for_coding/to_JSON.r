@@ -16,7 +16,7 @@ rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库�
         across(everything(), \(x) replace_na(x, "未知")),
     ) %>%
     sample_frac(size = 1) %>% 
-    rio::export("docs/databases/基层治理文献摘编数据库/基层治理中文文献数据.json")
+    rio::export("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/docs/databases/基层治理文献摘编数据库/基层治理中文文献数据.json")
 
 rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/data_for_coding/政治学名篇摘编汇总.xlsx", setclass = "tibble") %>%
     select(
@@ -29,4 +29,4 @@ rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库�
         across(everything(), \(x) replace_na(x, "未知")),
     ) %>%
     sample_frac(size = 1) %>% 
-    rio::export("docs/databases/基层治理文献摘编数据库/政治学名篇摘编汇总.json")
+    rio::export("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/docs/databases/基层治理文献摘编数据库/政治学名篇摘编汇总.json")

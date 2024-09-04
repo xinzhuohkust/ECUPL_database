@@ -1,5 +1,61 @@
 ---
 title: "中外治理精英数据库"
 image: 中外精英.jpg
+page-layout: full
+toc: false
+citation:
+  author: "政府管理学院 华东政法大学 "
+  type: collection
+  issued: 2024-09-04
+execute: 
+  freeze: false
 ---
 
+政治精英对政治经济发展起着重要作用，该数据库主要收集与整理具有学术研究意义的中外政治精英人物数据，旨在为中国政治和比较政治的实证研究作出华政的贡献。目前，该数据库包含以下数据集：
+
+::: {.panel-tabset align="left"}
+## 全国人民代表大会代表数据集
+
+全国人民代表大会代表数据集（delegates to the NPC，简称d-NPC）是以全国人大官方网站的代表名单为基础，收集整理出来的第11至13届全国人民代表大会代表基本情况数据，该数据集包含姓名、届数、代表团、性别、民族、籍贯、出生年月、党派等八个变量。其中，在党派这个变量中，由于无法确定官方网站中的“无”所代表的确切含义，本数据集统一作为缺失值处理。
+
+点击下方`CSV`或`Excel`按钮，可下载本数据集。点击表格上方的变量可进行快速筛选。
+
+<br>
+
+```{r}
+#| echo: false
+#| cache: false
+#| warning: false
+# install.packages("htmltools", lib = "F:\\OneDrive - HKUST Connect\\Phd\\R package temp repo")
+# install.packages("DT", lib = "F:\\OneDrive - HKUST Connect\\Phd\\R package temp repo")
+# install.packages("rio", lib = "F:\\OneDrive - HKUST Connect\\Phd\\R package temp repo")
+# .libPaths("F:\\OneDrive - HKUST Connect\\Phd\\R package temp repo")
+# library(htmltools, lib.loc = "F:\\OneDrive - HKUST Connect\\Phd\\R package temp repo")
+pacman::p_load(tidyverse)
+
+rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/data_for_coding/d-NPC.xlsx") %>% 
+    mutate(
+      across(everything(), as.character),
+      across(c("性别", "民族", "党派", "代表团", "届数"), as.factor)
+    ) %>% 
+    DT::datatable(
+      filter = 'top',
+      colnames = c('编号' = 1),
+      extensions = "Buttons", 
+      options = list(
+          dom = "Bfrtip",
+          autoWidth = TRUE,
+          buttons = c("csv", "excel")
+      )
+    )
+```
+
+## 其他数据集
+- 省级人大常委会组成人员数据集
+- 中国地方人大代表及建议数据集
+- 中国省部级领导数据集
+- 中国地级市（市委书记/市长）领导数据集
+- 中国县级领导（县委书记/县长）数据集
+- 美国国会议员数据集
+- 世界政党精英数据集（美国、英国、加拿大）
+:::

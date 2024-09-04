@@ -3,9 +3,9 @@ title: "数据库"
 listing:
   - id: databases
     contents: "*/*.[Rq]md"
+    sort: "title desc"
     type: grid
     fields: [image, date, title, subtitle]
-    sort: "date desc"
     categories: false
     sort-ui: true
     filter-ui: true

@@ -11,35 +11,35 @@
     "href": "index.html",
     "title": "华东政法大学",
     "section": "",
-    "text": "邮箱\n  \n  \n    \n     电话\n  \n\n  \n  \n华东政法大学法治与基层治理数据库受上海市高水平地方高校（学科）项目资助，是华东政法大学法治与基层治理交叉学科建设项目中的子项目之一，由华东政法大学政府管理学院负责建设和维护。该数据库项目始于2019年，旨在通过建立国内一流的法治与基层治理数据平台，提升华东政法大学在政治学与公共管理实证研究方面的影响力，充分发挥数据资源对学科建设、教学研究和人才培养的支撑与促进作用。目前该数据库包括基层治理文献摘编数据库、中外治理精英数据库、国家与基层治理系列数据库和中国治国理政历史数据库与案例库四个子库。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n中国治国理政历史数据库与案例库\n\n\n\n\n\n\n\n\n\n\n\n\n\n中外治理精英数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n国家与基层治理系列数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n基层治理文献摘编数据库\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n Back to top"
+    "text": "邮箱\n  \n  \n    \n     电话\n  \n\n  \n  \n华东政法大学法治与基层治理数据库受上海市高水平地方高校（学科）项目资助，是华东政法大学法治与基层治理交叉学科建设项目中的子项目之一，由华东政法大学政府管理学院负责建设和维护。该数据库项目始于2019年，旨在通过建立国内一流的法治与基层治理数据平台，提升华东政法大学在政治学与公共管理实证研究方面的影响力，充分发挥数据资源对学科建设、教学研究和人才培养的支撑与促进作用。目前该数据库包括基层治理文献摘编数据库、中外治理精英数据库、国家与基层治理系列数据库和中国治国理政历史数据库与案例库四个子库。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n基层治理文献摘编数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n国家与基层治理系列数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n中外治理精英数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n中国治国理政历史数据库与案例库\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "databases/国家与基层治理系列数据库/index.html",
     "href": "databases/国家与基层治理系列数据库/index.html",
     "title": "国家与基层治理系列数据库",
     "section": "",
-    "text": "Back to top"
+    "text": "该数据库一方面充分利用现代数据挖掘技术，采集和整理各级政府工作报告、党代会报告、人大代表议案等国家治理文本数据，另一方面运用传统的人工编码和赋值的方式收集整理国家治理相关的数据，形成具有较高学术价值的国家治理系列数据库，以支撑政治学和公共管理学科的教学与科研工作。目前，该数据库包含以下数据集：\n\n中国国务院政府工作报告（1954-2024）其他数据集\n\n\n中国国务院政府工作报告（1954-2024）数据集收集和整理了自1954年至2024年以来中国国务院历年政府工作报告的文本，该数据集包含年份、报告人、报告文本三个变量。\n点击下方CSV或Excel按钮，可下载完整数据集。点击表格上方的变量可进行快速筛选。\n\n\n\n\n\n\n\n\n\n\n中国省级政府工作报告（2003-2019）\n中国地级市政府工作报告（2009-2019）\n地方政府政民互动数据（上海、天津、无锡）\n国务院政策文件数据集（1996-2023）\n新媒体宣传与基层治理数据集\n中国省级领导新闻报道数据集\n中国政府采购合同数据集\n中国政府和社会资本合作（PPP）数据集\n中国基层微腐败案例数据集\n\n\n\n\n\n\n\n Back to topCitationBibTeX citation:@misc{华东政法大学_2024,\n  author = {华东政法大学 , 政府管理学院},\n  title = {国家与基层治理系列数据库},\n  date = {2024-09-04},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n华东政法大学 政府管理学院. 2024.\n“国家与基层治理系列数据库.”"
   },
   {
     "objectID": "databases/中国治国理政历史数据库与案例库/index.html",
     "href": "databases/中国治国理政历史数据库与案例库/index.html",
     "title": "中国治国理政历史数据库与案例库",
     "section": "",
-    "text": "该数据库项目在梳理历史文献档案资料和史学研究成果的基础上，收集和整理中国古代具有理论价值与现实意义的治国理政数据与案例，旨在为基于中国历史的政治学和行政学研究提供经验材料，促进历史政治学和历史行政学在中国的发展和繁荣。\n\n\n\n Back to topCitationBibTeX citation:@misc{2024,\n  author = {, 华东政法大学政府管理学院},\n  title = {中国治国理政历史数据库与案例库},\n  date = {2024-09-01},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n华东政法大学政府管理学院. 2024.\n“中国治国理政历史数据库与案例库.”"
+    "text": "该数据库项目在梳理历史文献档案资料和史学研究成果的基础上，收集和整理中国古代具有理论价值与现实意义的治国理政数据与案例，旨在为基于中国历史的政治学和行政学研究提供经验材料，促进历史政治学和历史行政学在中国的发展和繁荣。\n\n历史数据库与案例库\n\n\n\n中国治国理政历史案例库\n清代冲突与治理数据集\n近代中国政治经济军事数据集\n中国中古政治精英与冲突数据集\n中国历代统治者（皇帝/储君）数据集\n中国古代基层治理数据库（孔庙/祠堂等）\n\n\n\n\n\n\n\n Back to topCitationBibTeX citation:@misc{华东政法大学_2024,\n  author = {华东政法大学 , 政府管理学院},\n  title = {中国治国理政历史数据库与案例库},\n  date = {2024-09-04},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n华东政法大学 政府管理学院. 2024.\n“中国治国理政历史数据库与案例库.”"
   },
   {
     "objectID": "databases/index.html",
     "href": "databases/index.html",
     "title": "数据库",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n中国治国理政历史数据库与案例库\n\n\n\n\n\n\n\n\n\n\n\n\n\n中外治理精英数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n国家与基层治理系列数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n基层治理文献摘编数据库\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n基层治理文献摘编数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n国家与基层治理系列数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n中外治理精英数据库\n\n\n\n\n\n\n\n\n\n\n\n\n\n中国治国理政历史数据库与案例库\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "databases/中外治理精英数据库/index.html",
     "href": "databases/中外治理精英数据库/index.html",
     "title": "中外治理精英数据库",
     "section": "",
-    "text": "Back to top"
+    "text": "政治精英对政治经济发展起着重要作用，该数据库主要收集与整理具有学术研究意义的中外政治精英人物数据，旨在为中国政治和比较政治的实证研究作出华政的贡献。目前，该数据库包含以下数据集：\n\n全国人民代表大会代表数据集其他数据集\n\n\n全国人民代表大会代表数据集（delegates to the NPC，简称d-NPC）是以全国人大官方网站的代表名单为基础，收集整理出来的第11至13届全国人民代表大会代表基本情况数据，该数据集包含姓名、届数、代表团、性别、民族、籍贯、出生年月、党派等八个变量。其中，在党派这个变量中，由于无法确定官方网站中的“无”所代表的确切含义，本数据集统一作为缺失值处理。\n点击下方CSV或Excel按钮，可下载本数据集。点击表格上方的变量可进行快速筛选。\n\n\n\n\n\n\n\n\n\n\n省级人大常委会组成人员数据集\n中国地方人大代表及建议数据集\n中国省部级领导数据集\n中国地级市（市委书记/市长）领导数据集\n中国县级领导（县委书记/县长）数据集\n美国国会议员数据集\n世界政党精英数据集（美国、英国、加拿大）\n\n\n\n\n\n\n\n Back to topCitationBibTeX citation:@misc{华东政法大学_2024,\n  author = {华东政法大学 , 政府管理学院},\n  title = {中外治理精英数据库},\n  date = {2024-09-04},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n华东政法大学 政府管理学院. 2024. “中外治理精英数据库.”"
   },
   {
     "objectID": "databases/基层治理文献摘编数据库/index.html",
@@ -49,32 +49,11 @@
     "text": "该数据库全面搜集整理古今中外著名政治学者关于国家、阶级、民族、权力、政党、法治、政府、政体、民主政治、政治参与、政治沟通、政治文化、政治发展、基层治理、国家治理等主题的经典论述，形成可供学术引用的论述摘编库，以服务于校内外教师与研究生的教学与研究。为了方便校内外师生查询和引用该数据库的相关资源，提高该数据库的使用效率与社会效益，我们还基于该数据库资源建立了搜索系统。"
   },
   {
-    "objectID": "visitors/index.html",
-    "href": "visitors/index.html",
-    "title": "",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "databases/基层治理文献摘编数据库/index.html#数据库资源",
-    "href": "databases/基层治理文献摘编数据库/index.html#数据库资源",
+    "objectID": "databases/基层治理文献摘编数据库/index.html#政治学名篇搜索引擎",
+    "href": "databases/基层治理文献摘编数据库/index.html#政治学名篇搜索引擎",
     "title": "基层治理文献摘编数据库",
-    "section": "数据库资源",
-    "text": "数据库资源\n\n\n    \n    \n    经典文献搜索\n    \n    \n\n\n\n\n     经典文献搜索\n    \n        \n            选择主题"
-  },
-  {
-    "objectID": "databases/基层治理文献摘编数据库/index.html#文献搜索引擎",
-    "href": "databases/基层治理文献摘编数据库/index.html#文献搜索引擎",
-    "title": "基层治理文献摘编数据库",
-    "section": "文献搜索引擎",
-    "text": "文献搜索引擎\n\n\n    \n    \n    学术搜索引擎\n    \n    \n\n\n\n\n      基层治理文献搜索\n    \n        \n        \n    \n    \n    \n        上一页\n        下一页"
-  },
-  {
-    "objectID": "databases/基层治理文献摘编数据库/index.html#政治学名篇搜索系统",
-    "href": "databases/基层治理文献摘编数据库/index.html#政治学名篇搜索系统",
-    "title": "基层治理文献摘编数据库",
-    "section": "政治学名篇搜索系统",
-    "text": "政治学名篇搜索系统\n\n\n    \n    \n    经典文献搜索\n    \n    \n\n\n\n\n     政治学名篇搜索\n    \n        \n            选择主题"
+    "section": "政治学名篇搜索引擎",
+    "text": "政治学名篇搜索引擎\n\n\n    \n    \n    经典文献搜索\n    \n    \n\n\n\n\n     政治学名篇搜索\n    \n        \n            选择主题"
   },
   {
     "objectID": "databases/基层治理文献摘编数据库/index.html#基层治理文献搜索引擎",
@@ -84,10 +63,10 @@
     "text": "基层治理文献搜索引擎\n\n\n    \n    \n    学术搜索引擎\n    \n    \n\n\n\n\n      基层治理文献搜索\n    \n        \n        \n    \n    \n    \n        上一页\n        下一页"
   },
   {
-    "objectID": "databases/基层治理文献摘编数据库/index.html#政治学名篇搜索引擎",
-    "href": "databases/基层治理文献摘编数据库/index.html#政治学名篇搜索引擎",
-    "title": "基层治理文献摘编数据库",
-    "section": "政治学名篇搜索引擎",
-    "text": "政治学名篇搜索引擎\n\n\n    \n    \n    经典文献搜索\n    \n    \n\n\n\n\n     政治学名篇搜索\n    \n        \n            选择主题"
+    "objectID": "visitors/index.html",
+    "href": "visitors/index.html",
+    "title": "",
+    "section": "",
+    "text": "Back to top"
   }
 ]

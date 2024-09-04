@@ -19,9 +19,9 @@ toc: false
 listing: 
     - id: indexpage
       type: grid
+      sort: "title desc"
       contents: "databases/*/*.[Rq]md"
       fields: [image, date, title]
-      sort: "date desc"
       sort-ui: false
       filter-ui: false
       page-size: 3
@@ -37,8 +37,6 @@ listing:
 
 ::: {#indexpage}
 :::
-
-
 
 
 
