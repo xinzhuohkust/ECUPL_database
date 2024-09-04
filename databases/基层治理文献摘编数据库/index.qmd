@@ -20,7 +20,7 @@ citation:
 source("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库项目网站/data_for_coding/to_JSON.r")
 ```
 
-## 政治学名篇搜索系统
+## 政治学名篇搜索引擎
 
 ```{=html}
 <html lang="zh-CN">
