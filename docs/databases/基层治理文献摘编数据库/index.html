@@ -119,9 +119,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
@@ -144,13 +142,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>该数据库全面搜集整理古今中外著名政治学者关于国家、阶级、民族、权力、政党、法治、政府、政体、民主政治、政治参与、政治沟通、政治文化、政治发展、基层治理、国家治理等主题的经典论述，形成可供学术引用的论述摘编库，以服务于校内外教师与研究生的教学与研究。为了方便校内外师生查询和引用该数据库的相关资源，提高该数据库的使用效率与社会效益，我们还基于该数据库资源建立了一套搜索系统。</p>
-
+<p>该数据库全面搜集整理古今中外著名政治学者关于国家、阶级、民族、权力、政党、法治、政府、政体、民主政治、政治参与、政治沟通、政治文化、政治发展、基层治理、国家治理等主题的经典论述，形成可供学术引用的论述摘编库，以服务于校内外教师与研究生的教学与研究。为了方便校内外师生查询和引用该数据库的相关资源，提高该数据库的使用效率与社会效益，我们还基于该数据库资源建立了搜索系统。</p>
+<p><br></p>
+<section id="政治学名篇搜索系统" class="level2">
+<h2 class="anchored" data-anchor-id="政治学名篇搜索系统">政治学名篇搜索系统</h2>
 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学术搜索引擎</title>
+    <title>经典文献搜索</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .search-engine-container {
@@ -175,22 +175,18 @@ ul.task-list li input[type="checkbox"] {
             width: 80%;
             max-width: 500px;
             margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 25px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .search-engine-container input[type="text"] {
+        select, input[type="text"] {
             flex-grow: 1;
             padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 25px 0 0 25px;
+            border: none;
             font-size: 16px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s, border-color 0.3s;
-        }
-
-        .search-engine-container input[type="text"]:focus {
-            border-color: #3b82f6;
+            border-radius: 25px;
             outline: none;
-            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
         }
 
         .search-button {
@@ -198,9 +194,12 @@ ul.task-list li input[type="checkbox"] {
             border: none;
             background-color: #3b82f6;
             color: #fff;
-            border-radius: 0 25px 25px 0;
+            border-radius: 25px;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .search-button:hover {
@@ -234,22 +233,231 @@ ul.task-list li input[type="checkbox"] {
             color: #3b82f6;
         }
 
-        .icon {
-            margin-right: 8px;
-            color: #3b82f6;
-        }
-
         .highlight {
             background-color: yellow;
         }
 
-        .pagination {
+        .results table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results th, .results td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center; /* Center-align table headers */
+        }
+
+        .results th {
+            background-color: #f4f4f9;
+            color: #3b82f6;
+        }
+
+        .results td {
+            max-width: 300px; /* Adjust as necessary */
+            vertical-align: top;
+            word-wrap: break-word;
+        }
+
+        .results td:first-child {
+            vertical-align: middle; /* Center vertically */
+            text-align: center; /* Center horizontally */
+        }
+    </style>
+
+
+
+<div class="search-engine-container">
+    <h1><i class="fas fa-book"></i> 政治学名篇搜索</h1>
+    <div class="search-bar">
+        <select id="topic-select">
+            <option value="">选择主题</option>
+        </select>
+        <input type="text" id="search-box" placeholder="输入关键词">
+        <button class="search-button" onclick="performSearch()">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <div id="results" class="results"></div>
+</div>
+
+<script>
+    let data = [];
+
+    fetch('政治学名篇摘编汇总.json')
+        .then(response => response.json())
+        .then(jsonData => {
+            data = jsonData;
+            populateTopics(jsonData);
+        })
+        .catch(error => console.error('Error loading JSON data:', error));
+
+    function populateTopics(data) {
+        const topicSelect = document.getElementById('topic-select');
+        const topics = new Set(data.map(item => item.topic));
+        topics.forEach(topic => {
+            const option = document.createElement('option');
+            option.value = topic;
+            option.textContent = topic;
+            topicSelect.appendChild(option);
+        });
+    }
+
+    function performSearch() {
+        const topic = document.getElementById('topic-select').value;
+        const query = document.getElementById('search-box').value.trim();
+        const resultsContainer = document.getElementById('results');
+        resultsContainer.innerHTML = '';
+
+        const filteredData = data.filter(item => 
+            (!topic || item.topic.includes(topic)) &&
+            (!query || item.summary.includes(query))
+        );
+
+        if (filteredData.length === 0) {
+            resultsContainer.innerHTML = '<p> 未找到相关文献，换个关键词试试吧 <i class="bi bi-emoji-frown-fill"></i></p>';
+            return;
+        }
+
+        let tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>主题</th>
+                        <th>经典摘录</th>
+                        <th>出处</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        filteredData.forEach(item => {
+            const highlightedSummary = item.summary.replace(new RegExp(`(${query})`, 'gi'), '<span class="highlight">$1</span>');
+            tableHTML += `
+                <tr>
+                    <td>${item.topic}</td>
+                    <td>${highlightedSummary}</td>
+                    <td>${item.source}</td>
+                </tr>
+            `;
+        });
+
+        tableHTML += '</tbody></table>';
+        resultsContainer.innerHTML = tableHTML;
+    }
+</script>
+
+
+
+<p><br></p>
+</section>
+<section id="基层治理文献搜索引擎" class="level2">
+<h2 class="anchored" data-anchor-id="基层治理文献搜索引擎">基层治理文献搜索引擎</h2>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术搜索引擎</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .academic-search-container {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .academic-search-container h1 {
+            color: #3b82f6;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .academic-search-bar {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .academic-search-container input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .academic-search-container input[type="text"]:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+        }
+
+        .academic-search-button {
+            padding: 12px;
+            border: none;
+            background-color: #3b82f6;
+            color: #fff;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .academic-search-button:hover {
+            background-color: #2563eb;
+        }
+
+        .academic-results {
+            width: 95%;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-height: 1000px;
+            overflow-y: auto;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        .academic-result {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .academic-result:hover {
+            background-color: #e0e7ff;
+            transform: translateY(-2px);
+        }
+
+        .academic-result strong {
+            color: #3b82f6;
+        }
+
+        .academic-icon {
+            margin-right: 8px;
+            color: #3b82f6;
+        }
+
+        .academic-highlight {
+            background-color: yellow;
+        }
+
+        .academic-pagination {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
 
-        .pagination button {
+        .academic-pagination button {
             margin: 0 5px;
             padding: 10px 15px;
             border: none;
@@ -259,11 +467,11 @@ ul.task-list li input[type="checkbox"] {
             transition: background-color 0.3s;
         }
 
-        .pagination button:hover {
+        .academic-pagination button:hover {
             background-color: #2563eb;
         }
 
-        .pagination button:disabled {
+        .academic-pagination button:disabled {
             background-color: #ddd;
             cursor: not-allowed;
         }
@@ -271,25 +479,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="search-engine-container">
-    <h1><i class="fas fa-search"></i>文献搜索引擎</h1>
-    <div class="search-bar">
-        <input type="text" id="search-box" placeholder="输入关键词进行搜索">
-        <button class="search-button" onclick="performSearch()"><i class="fas fa-search"></i></button>
+<div class="academic-search-container">
+    <h1><i class="bi bi-journal-text"></i>  基层治理文献搜索</h1>
+    <div class="academic-search-bar">
+        <input type="text" id="academic-search-box" placeholder="输入关键词">
+        <button class="academic-search-button" onclick="performAcademicSearch()"><i class="fas fa-search"></i></button>
     </div>
-    <div id="results" class="results"></div>
-    <div class="pagination">
-        <button id="prev-btn" onclick="changePage(-1)">上一页</button>
-        <button id="next-btn" onclick="changePage(1)">下一页</button>
+    <div id="academic-results" class="academic-results"></div>
+    <div class="academic-pagination">
+        <button id="academic-prev-btn" onclick="changeAcademicPage(-1)">上一页</button>
+        <button id="academic-next-btn" onclick="changeAcademicPage(1)">下一页</button>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <script>
-let fuse;
-let currentPage = 0;
-const resultsPerPage = 10;
-let searchResults = [];
+let academicFuse;
+let academicCurrentPage = 0;
+const academicResultsPerPage = 5;
+let academicSearchResults = [];
 
 fetch('基层治理中文文献数据.json')
     .then(response => response.json())
@@ -299,64 +507,64 @@ fetch('基层治理中文文献数据.json')
             threshold: 0.3,
         };
 
-        fuse = new Fuse(data, options);
+        academicFuse = new Fuse(data, options);
 
         // 显示前5个结果
-        searchResults = data.map(doc => ({ item: doc }));
-        renderResults();
+        academicSearchResults = data.map(doc => ({ item: doc }));
+        renderAcademicResults();
     })
     .catch(error => console.error('Error loading JSON data:', error));
 
-function performSearch() {
-    const query = document.getElementById('search-box').value.trim();
-    searchResults = query ? fuse.search(query) : [];
-    currentPage = 0;
-    renderResults();
+function performAcademicSearch() {
+    const query = document.getElementById('academic-search-box').value.trim();
+    academicSearchResults = query ? academicFuse.search(query) : [];
+    academicCurrentPage = 0;
+    renderAcademicResults();
 }
 
-function highlight(text, query) {
+function highlightAcademic(text, query) {
     const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<span class="highlight">$1</span>');
+    return text.replace(regex, '<span class="academic-highlight">$1</span>');
 }
 
-function renderResults() {
-    const resultsContainer = document.getElementById('results');
+function renderAcademicResults() {
+    const resultsContainer = document.getElementById('academic-results');
     resultsContainer.innerHTML = '';
 
-    const start = currentPage * resultsPerPage;
-    const end = start + resultsPerPage;
-    const pageResults = searchResults.slice(start, end);
+    const start = academicCurrentPage * academicResultsPerPage;
+    const end = start + academicResultsPerPage;
+    const pageResults = academicSearchResults.slice(start, end);
 
     if (pageResults.length === 0) {
-        resultsContainer.innerHTML = '<div class="result">未找到相关文献，换个关键词试试吧</div>';
+        resultsContainer.innerHTML = '<p> 未找到相关文献，换个关键词试试吧 <i class="bi bi-emoji-frown-fill"></i></p>';
         return;
     }
 
-    const query = document.getElementById('search-box').value.trim();
+    const query = document.getElementById('academic-search-box').value.trim();
 
     pageResults.forEach(result => {
         const item = result.item;
         const resultElement = document.createElement('div');
-        resultElement.className = 'result';
+        resultElement.className = 'academic-result';
         resultElement.innerHTML = `
-            <i class="fas fa-book icon"></i><strong>题名:</strong> ${highlight(item.title, query)}<br>
-            <i class="fas fa-user icon"></i><strong>作者:</strong> ${highlight(item.author, query)}<br>
-            <i class="fas fa-university icon"></i><strong>文献来源:</strong> ${highlight(item.source, query)}<br>
-            <i class="fas fa-calendar-alt icon"></i><strong>年:</strong> ${highlight(item.year, query)}<br>
-            <i class="fas fa-tags icon"></i><strong>关键词:</strong> ${highlight(item.keywords, query)}<br>
-            <i class="fas fa-building icon"></i><strong>机构:</strong> ${highlight(item.institution, query)}<br>
-            <i class="fas fa-file-alt icon"></i><strong>摘要:</strong> ${highlight(item.summary, query)}
+            <i class="fas fa-book academic-icon"></i><strong>题名:</strong> ${highlightAcademic(item.title, query)}<br>
+            <i class="fas fa-user academic-icon"></i><strong>作者:</strong> ${highlightAcademic(item.author, query)}<br>
+            <i class="fas fa-university academic-icon"></i><strong>文献来源:</strong> ${highlightAcademic(item.source, query)}<br>
+            <i class="fas fa-calendar-alt academic-icon"></i><strong>年:</strong> ${highlightAcademic(item.year, query)}<br>
+            <i class="fas fa-tags academic-icon"></i><strong>关键词:</strong> ${highlightAcademic(item.keywords, query)}<br>
+            <i class="fas fa-building academic-icon"></i><strong>机构:</strong> ${highlightAcademic(item.institution, query)}<br>
+            <i class="fas fa-file-alt academic-icon"></i><strong>摘要:</strong> ${highlightAcademic(item.summary, query)}
         `;
         resultsContainer.appendChild(resultElement);
     });
 
-    document.getElementById('prev-btn').disabled = currentPage === 0;
-    document.getElementById('next-btn').disabled = end >= searchResults.length;
+    document.getElementById('academic-prev-btn').disabled = academicCurrentPage === 0;
+    document.getElementById('academic-next-btn').disabled = end >= academicSearchResults.length;
 }
 
-function changePage(direction) {
-    currentPage += direction;
-    renderResults();
+function changeAcademicPage(direction) {
+    academicCurrentPage += direction;
+    renderAcademicResults();
 }
 </script>
 
@@ -364,6 +572,7 @@ function changePage(direction) {
 
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{华东政法大学_2024,
   author = {华东政法大学 , 政府管理学院},
