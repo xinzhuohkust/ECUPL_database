@@ -16,4 +16,4 @@ rio::import("data_for_coding/基层治理中文文献数据.xlsx", setclass = "t
         across(everything(), \(x) replace_na(x, "未知")),
     ) %>%
     sample_frac(size = 1) %>% 
-    rio::export("data_for_coding/基层治理中文文献数据.json", json_pretty = TRUE)
+    rio::export("docs/databases/基层治理文献摘编数据库/基层治理中文文献数据.json")
