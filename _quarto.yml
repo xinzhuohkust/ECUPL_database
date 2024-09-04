@@ -1,0 +1,42 @@
+project:
+  type: website
+  preview: 
+    browser: true
+
+website:
+  favicon: images/chinese_government-removebg-preview.png
+  title: ""
+  back-to-top-navigation: true
+  page-footer: "© 2024 华东政法大学政府管理学院"
+  reader-mode: true
+  navbar:
+    pinned: true
+    search: true
+    background: "#d3d3d3"
+    logo: images/ecupl_logo.svg
+    #left:
+      #- href: index.qmd
+        #text: Home
+      #- about.qmd
+    right:
+      - text: "<span class='menutext-home'>数据库</span><span class='text-line'></span>"
+        icon: 'bi bi-database-down' 
+        file: databases/index.qmd
+      - text: "<span class='menutext-home'>可视化</span><span class='text-line'></span>"
+        icon: 'graph-down' 
+        file: visualizations/index.qmd
+      - text: "<span class='menutext-home'>访客地图</span><span class='text-line'></span>"
+        icon: 'bi bi-globe-americas' 
+        file: visitors/index.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    highlight-style:
+      light: custom-light.theme
+      dark: custom-dark.theme
+
+
+

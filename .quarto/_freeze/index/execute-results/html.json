@@ -1,0 +1,12 @@
+{
+  "hash": "d03b46f2a8a7060f7f3e57b44ad93105",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"<span class='university-text'>华东政法大学</span><span class='text-line'></span>\"\nsubtitle: \"<span class='platform-text'>法治与基层治理数据库</span>\"\npage-layout: full\nabout:\n    template: trestles\n    image: images/database.jpg\n    image-width: 15em\n    links:\n    - text: \"邮箱\"\n      icon: 'envelope-at' \n      href: \"mailto:ecuplpolis@163.com\"\n    - text: \"电话\"\n      icon: 'telephone-outbound' \n      href: \"tel:+862157790125\"\ntoc: false\n---\n\n::: {#introduction}\n华东政法大学法治与基层治理数据库受上海市高水平地方高校（学科）项目资助，是华东政法大学法治与基层治理交叉学科建设项目中的子项目之一，由华东政法大学政府管理学院负责建设和维护。该数据库项目始于2019年，旨在通过建立国内一流的法治与基层治理数据平台，提升华东政法大学在政治学与公共管理实证研究方面的影响力，充分发挥数据资源对学科建设、教学研究和人才培养的支撑与促进作用。目前该数据库包括基层治理文献摘编数据库、中外治理精英数据库、国家与基层治理系列数据库和中国治国理政历史数据库与案例库四个子库。\n:::\n\n### <span class='database-text'>数据库</span><span class='text-line'></span>\n\n::: {#posts}\n:::\n\n<a href=\"_site/databases/index.html\"><button type=\"button\" class=\"btn btn-primary float-end btn-sm\">See all</button></a>\n\n### 可视化\n\n::: {#posts}\n:::\n\n<a href=\"../posts/index.html\"><button type=\"button\" class=\"btn btn-primary float-end btn-sm\">See all</button></a>\n\n\n```{html}\n<body>\n<div id=\"recent-posts-container\">\n</div>\n\n<script>\n  fetch('_site/databases/index.html')\n    .then(response => response.text())\n    .then(html => {\n      document.getElementById('recent-posts-container').innerHTML = html;\n    })\n    .catch(error => {\n      console.error('Error loading the list:', error);\n    });\n</script>\n</body>\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "listingMap": {
+    "databases\\index.qmd": [
+      "*/*.[Rq]md"
+    ],
+    "index.qmd": [
+      "databases/*/*.[Rq]md"
+    ]
+  }
+}
