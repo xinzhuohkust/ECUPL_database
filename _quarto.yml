@@ -20,6 +20,9 @@ website:
         #text: Home
       #- about.qmd
     right:
+      - text: "<span class='menutext-home'>首页</span><span class='text-line'></span>"
+        icon: 'bi bi-house' 
+        file: index.qmd
       - text: "<span class='menutext-home'>数据库</span><span class='text-line'></span>"
         icon: 'bi bi-database-down' 
         file: databases/index.qmd
