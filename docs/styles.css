@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'ming'; 
+    src: url('fonts/明朝体.otf') format('opentype');  
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'song'; 
+    src: url('fonts/NeoZhiSong.ttf') format('opentype');  
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'kai'; 
+    src: url('fonts/MaShanZheng.ttf') format('opentype');  
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'song';
+}
+
+#quarto-document-content > p {
+    font-family: 'song';
+}
+
+body {
+    font-family: 'song'
+}
+
+.university-text {
+    font-size: 30px;  
+    font-weight: 400;
+    font-family: kai;
+}
+
+.platform-text {
+    font-size: 29px;  
+    font-weight: 400;
+    font-family: kai;
+}
+
+#quarto-content {
+    /*background: "#F2F5F5" /* radial-gradient(#f7f7f7, #dddddd);*/
+    /*background-size: 100vw 100vh;
+    overflow: hidden;
+    padding-top: 10vh;
+    font-family: Lora, sans-serif;
+    font-style: normal;
+    font-size: 1rem; 
+    font-display: swap;
+    font-weight: 520;
+    color: #212529;
+    src: local("Lato"), url("https://mdn.github.io/web-fonts/LatoReg.ttf");
+    /*position: relative;*/
+    /*left: -120px;*/
+}
+
+.quarto-about-trestles {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* 调整间距 */
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+.about-entity, .about-contents {
+    flex: 1;
+    max-width: 600px; /* 限制最大宽度 */
+}
+
+.about-entity img {
+    display: block;
+    margin: 0 auto; /* 图片居中 */
+}
+
+.about-contents {
+    flex: 2;
+    margin-top: 4em;
+}
+
+#databases-pagination > ul > li.page-item.active > a {
+    background-color: #d3d3d3;
+    border-color: #d8d8d8;
+    color: black;
+}
+
