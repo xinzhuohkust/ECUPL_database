@@ -44,7 +44,7 @@ body {
 }
 
 #quarto-content {
-    background: "#F2F5F5" /* radial-gradient(#f7f7f7, #dddddd); 从纯白色渐变到非常浅的灰色 */
+    /*background: "#F2F5F5" /* radial-gradient(#f7f7f7, #dddddd);*/
     /*background-size: 100vw 100vh;
     overflow: hidden;
     padding-top: 10vh;
