@@ -74,7 +74,7 @@ col_plot <- ggplot(data = attention, aes(x = reorder(地区, -数量), y = 数�
     xlab("") +
     ylab("") 
 
-combind_plot <- cow_plot_col_cases <- ggdraw(
+combined_plot <- cow_plot_col_cases <- ggdraw(
     col_plot + theme(plot.margin = margin(l = 0, 0, 0, 0, "cm"))
 ) +
     draw_plot(
@@ -87,7 +87,7 @@ combind_plot <- cow_plot_col_cases <- ggdraw(
 
 ggsave(
     "attention_map.png",
-    plot = combind_plot,
+    plot = combined_plot ,
     width = 6,
     height = 4,
     dpi = 300
@@ -99,7 +99,7 @@ ggsave(
 #| echo: false
 ggsave(
     "F:\\OneDrive - HKUST Connect\\Phd\\网站范例\\华东政法数据库项目网站\\docs\\visualizations\\attention_map.png",
-    plot = combind_plot,
+    plot = combined_plot,
     width = 6,
     height = 4,
     dpi = 300
