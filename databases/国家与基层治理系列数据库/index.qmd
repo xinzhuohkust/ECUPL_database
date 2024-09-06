@@ -18,7 +18,7 @@ execute:
 
 中国国务院政府工作报告（1954-2024）数据集收集和整理了自1954年至2024年以来中国国务院历年政府工作报告的文本，该数据集包含年份、报告人、报告文本三个变量。
 
-点击下方`CSV`或`Excel`按钮，可下载完整数据集。点击变量下方的筛选框可进行快速筛选。
+点击下方`Excel`或`CSV`按钮，可下载完整数据集。点击变量下方的筛选框可进行快速筛选。
 
 <br>
 
@@ -45,7 +45,7 @@ rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库�
         options = list(
             dom = "Bfrtip",
             autoWidth = FALSE,
-            buttons = c("csv", "excel"),
+            buttons = c("excel", "csv"),
             columnDefs = list(
                 list(className = 'dt-center', targets = "_all"),
                 list(visible = FALSE, targets = 3)

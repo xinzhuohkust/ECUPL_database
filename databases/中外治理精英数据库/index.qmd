@@ -18,7 +18,7 @@ execute:
 
 全国人民代表大会代表数据集（delegates to the NPC，简称d-NPC）是以全国人大官方网站的代表名单为基础，收集整理出来的第11至13届全国人民代表大会代表基本情况数据，该数据集包含姓名、届数、代表团、性别、民族、籍贯、出生年月、党派等八个变量。其中，在党派这个变量中，由于无法确定官方网站中的“无”所代表的确切含义，本数据集统一作为缺失值处理。
 
-点击下方`CSV`或`Excel`按钮，可下载本数据集。点击变量下方的筛选框可进行快速筛选。
+点击下方`Excel`或`CSV`按钮，可下载本数据集。点击变量下方的筛选框可进行快速筛选。
 
 <br>
 
@@ -45,7 +45,7 @@ rio::import("F:/OneDrive - HKUST Connect/Phd/网站范例/华东政法数据库�
       options = list(
           dom = "Bfrtip",
           autoWidth = TRUE,
-          buttons = c("csv", "excel")
+          buttons = c("excel", "csv")
       )
     )
 ```
